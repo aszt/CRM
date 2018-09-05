@@ -19,6 +19,16 @@
 		    <groupId>org.apache.struts</groupId>
 		    <artifactId>struts2-core</artifactId>
 		    <version>${struts2.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-io</artifactId>
+					<groupId>commons-io</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>javassist</artifactId>
+					<groupId>org.javassist</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		
 		<!-- struts2注解开发包 -->
@@ -33,6 +43,24 @@
 		    <groupId>org.apache.struts</groupId>
 		    <artifactId>struts2-spring-plugin</artifactId>
 		    <version>${struts2.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-context</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-web</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- hibernate核心包 -->
@@ -40,12 +68,12 @@
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
 		    <version>${hibernate.version}</version>
-			<exclusions>
+			<!--<exclusions>
 				<exclusion>
-					<groupId>org.hibernate</groupId>
-					<artifactId>annotations</artifactId>
+					<artifactId>hibernate-commons-annotations</artifactId>
+					<groupId>org.hibernate.common</groupId>
 				</exclusion>
-			</exclusions>
+			</exclusions>-->
 		</dependency>
 
 		<!-- mysql驱动包 -->
@@ -112,8 +140,6 @@
 		    <artifactId>spring-orm</artifactId>
 		    <version>${spring.version}</version>
 		</dependency>
-		
-		
 
 	</dependencies>
 	<build>
@@ -132,5 +158,22 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<!-- 解决idea编辑器不编译hbm.xml文件问题 -->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
 </project>
