@@ -10,7 +10,7 @@
 		<spring.version>5.0.8.RELEASE</spring.version>
 		<hibernate.version>5.3.6.Final</hibernate.version>
 		<mysql.version>8.0.12</mysql.version>
-		<c3p0.version>0.9.5.2</c3p0.version>
+		<c3p0.version>0.9.1</c3p0.version>
 	</properties>
 	<dependencies>
 		
@@ -40,6 +40,12 @@
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
 		    <version>${hibernate.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>annotations</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- mysql驱动包 -->
@@ -51,11 +57,11 @@
 		
 		<!-- c3p0连接池 -->
 		<dependency>
-		    <groupId>com.mchange</groupId>
-		    <artifactId>c3p0</artifactId>
-		    <version>${c3p0.version}</version>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0.version}</version>
 		</dependency>
-		
+
 		<!-- spring核心包 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
