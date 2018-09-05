@@ -1,4 +1,6 @@
-package crm.crm.service;
+package com.crm.service;
+
+import com.crm.domain.Customer;
 
 /**
  * 客户管理业务层接口
@@ -7,4 +9,5 @@ package crm.crm.service;
  */
 public interface CustomerService {
 
+    void save(Customer customer);
 }
