@@ -2,6 +2,8 @@ package com.crm.service;
 
 import com.crm.domain.Customer;
 
+import java.util.List;
+
 /**
  * 客户管理业务层接口
  * @author tong
@@ -10,4 +12,14 @@ import com.crm.domain.Customer;
 public interface CustomerService {
 
     void save(Customer customer);
+
+    void update(Customer customer);
+
+    void delete(Customer customer);
+
+    Customer findById(Long cust_id);
+
+    List<Customer> findAllByHQL();
+
+    List<Customer> findAllByQBC();
 }
