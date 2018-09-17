@@ -6,9 +6,14 @@
 
     <constant name="struts.action.extension" value="action"/>
 
-    <package name="customer" extends="struts-default" namespace="/">
+    <!--struts2从2.5版本开始，为了提升安全性，默认开启了严格的方法调用。-->
+    <package name="crm" extends="struts-default" namespace="/" strict-method-invocation="false">
         <action name="customer_*" class="customerAction" method="{1}">
 
+        </action>
+        <action name="user_*" class="userAction" method="{1}">
+            <result name="login">login.jsp</result>
+            <result name="success">index.jsp</result>
         </action>
     </package>
 </struts>
