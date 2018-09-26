@@ -8,8 +8,35 @@
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
 	rel=stylesheet>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    // 页面加载，函数执行
+	$(function () {
+		// 加载客户来源
+		$.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action",{"dict_type_code":"002"},function (data) {
+			// 遍历json的数据
+			$(data).each(function (i,n) {
+				$("#cust_source").append("<option value='"+ n.dict_id +"'>"+ n.dict_item_name +"</option>")
+            })
+        },"json")
 
+        // 加载客户级别
+        $.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action",{"dict_type_code":"006"},function (data) {
+            // 遍历json的数据
+            $(data).each(function (i,n) {
+                $("#cust_level").append("<option value='"+ n.dict_id +"'>"+ n.dict_item_name +"</option>")
+            })
+        },"json")
 
+        // 加载所属行业
+        $.post("${pageContext.request.contextPath }/baseDict_findByTypeCode.action",{"dict_type_code":"001"},function (data) {
+            // 遍历json的数据
+            $(data).each(function (i,n) {
+                $("#cust_industry").append("<option value='"+ n.dict_id +"'>"+ n.dict_item_name +"</option>")
+            })
+        },"json")
+    })
+</script>
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
 <BODY>
@@ -56,8 +83,9 @@
 								</td>
 								<td>客户级别 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_level">
+									<select id="cust_level">
+										<option value="">-请选择-</option>
+									</select>
 								</td>
 							</TR>
 							
@@ -65,13 +93,15 @@
 								
 								<td>信息来源 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_source">
+									<select id="cust_source">
+										<option value="">-请选择-</option>
+									</select>
 								</td>
 								<td>所属行业 ：</td>
 								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_industry">
+									<select id="cust_industry">
+										<option value="">-请选择-</option>
+									</select>
 								</td>
 							</TR>
 							

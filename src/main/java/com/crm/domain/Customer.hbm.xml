@@ -6,18 +6,21 @@
     <!-- 建立类与表的映射 -->
     <class name="com.crm.domain.Customer" table="cst_customer">
         <!-- 建立类中的属性与表中的主键对应 -->
-        <id name="cust_id" column="cust_id" >
+        <id name="cust_id" column="cust_id">
             <!-- 主键生成策略 -->
             <generator class="native"/>
         </id>
 
         <!-- 建立类中的普通的属性和表的字段的对应 -->
-        <property name="cust_name" column="cust_name"  />
-        <property name="cust_source" column="cust_source" />
-        <property name="cust_industry" column="cust_industry"/>
-        <property name="cust_level" column="cust_level"/>
+        <property name="cust_name" column="cust_name"/>
         <property name="cust_phone" column="cust_phone"/>
         <property name="cust_mobile" column="cust_mobile"/>
+
+        <!-- 配置客户与字典的多对一的映射 -->
+        <many-to-one name="baseDictSource" class="com.crm.domain.BaseDict" column="cust_source"></many-to-one>
+        <many-to-one name="baseDictIndustry" class="com.crm.domain.BaseDict" column="cust_industry"></many-to-one>
+        <many-to-one name="baseDictLevel" class="com.crm.domain.BaseDict" column="cust_level"></many-to-one>
+
     </class>
 
     <query name="queryAll">from Customer</query>

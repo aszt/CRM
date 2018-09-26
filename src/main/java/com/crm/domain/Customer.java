@@ -5,15 +5,46 @@ public class Customer {
 
     private String cust_name;
 
-    private String cust_source;
+    /*private String cust_source;
 
     private String cust_industry;
 
-    private String cust_level;
+    private String cust_level;*/
 
     private String cust_phone;
 
     private String cust_mobile;
+
+    // 客户和字典表是多对一：需要在多的一方放的是已的一方的对象
+    private BaseDict baseDictSource;
+
+    private BaseDict baseDictIndustry;
+
+    private BaseDict baseDictLevel;
+
+    public BaseDict getBaseDictSource() {
+        return baseDictSource;
+    }
+
+    public void setBaseDictSource(BaseDict baseDictSource) {
+        this.baseDictSource = baseDictSource;
+    }
+
+    public BaseDict getBaseDictIndustry() {
+        return baseDictIndustry;
+    }
+
+    public void setBaseDictIndustry(BaseDict baseDictIndustry) {
+        this.baseDictIndustry = baseDictIndustry;
+    }
+
+    public BaseDict getBaseDictLevel() {
+        return baseDictLevel;
+    }
+
+    public void setBaseDictLevel(BaseDict baseDictLevel) {
+        this.baseDictLevel = baseDictLevel;
+    }
 
     public Long getCust_id() {
         return cust_id;
@@ -29,30 +60,6 @@ public class Customer {
 
     public void setCust_name(String cust_name) {
         this.cust_name = cust_name;
-    }
-
-    public String getCust_source() {
-        return cust_source;
-    }
-
-    public void setCust_source(String cust_source) {
-        this.cust_source = cust_source;
-    }
-
-    public String getCust_industry() {
-        return cust_industry;
-    }
-
-    public void setCust_industry(String cust_industry) {
-        this.cust_industry = cust_industry;
-    }
-
-    public String getCust_level() {
-        return cust_level;
-    }
-
-    public void setCust_level(String cust_level) {
-        this.cust_level = cust_level;
     }
 
     public String getCust_phone() {
