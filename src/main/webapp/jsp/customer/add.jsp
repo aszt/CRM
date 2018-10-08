@@ -83,7 +83,7 @@
 								</td>
 								<td>客户级别 ：</td>
 								<td>
-									<select id="cust_level">
+									<select id="cust_level" name="baseDictLevel.dict_id">
 										<option value="">-请选择-</option>
 									</select>
 								</td>
@@ -93,13 +93,13 @@
 								
 								<td>信息来源 ：</td>
 								<td>
-									<select id="cust_source">
+									<select id="cust_source" name="baseDictSource.dict_id">
 										<option value="">-请选择-</option>
 									</select>
 								</td>
 								<td>所属行业 ：</td>
 								<td>
-									<select id="cust_industry">
+									<select id="cust_industry" name="baseDictIndustry.dict_id">
 										<option value="">-请选择-</option>
 									</select>
 								</td>

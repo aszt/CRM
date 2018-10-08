@@ -1,6 +1,8 @@
 package com.crm.dao;
 
 import com.crm.domain.Customer;
+import com.crm.domain.PageBean;
+import org.hibernate.criterion.DetachedCriteria;
 
 import java.util.List;
 
@@ -24,4 +26,8 @@ public interface CustomerDao {
     List<Customer> findAllByQBC();
 
     List<Customer> findAllByNamedQuery();
+
+    Integer findCount(DetachedCriteria detachedCriteria);
+
+    List<Customer> findByPage(DetachedCriteria detachedCriteria, Integer begin, Integer pageSize);
 }

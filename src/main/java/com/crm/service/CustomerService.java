@@ -1,13 +1,15 @@
 package com.crm.service;
 
 import com.crm.domain.Customer;
+import com.crm.domain.PageBean;
+import org.hibernate.criterion.DetachedCriteria;
 
 import java.util.List;
 
 /**
  * 客户管理业务层接口
- * @author tong
  *
+ * @author tong
  */
 public interface CustomerService {
 
@@ -22,4 +24,6 @@ public interface CustomerService {
     List<Customer> findAllByHQL();
 
     List<Customer> findAllByQBC();
+
+    PageBean<Customer> findByPage(DetachedCriteria detachedCriteria, Integer currPage, Integer pageSize);
 }
